@@ -38,7 +38,7 @@ def coh_function():
     final_dict={}
     # always increasing
     if all(diff > 0 for diff in Differences):
-        file_path = Path(r'C:\project_group\summary_Report.txt')
+        file_path = Path(r'C:\project_group\summary_report.txt')
         with file_path.open(mode='a', encoding='UTF-8') as file:
             file.write(f'\n[CASH SURPLUS] CASH ON EACH DAY IS HIGHER THAN THE PREVIOUS')
             
@@ -53,7 +53,7 @@ def coh_function():
 ''')
     # always decreasing
     elif all(diff < 0 for diff in Differences):
-        file_path = Path(r'C:\project_group\summary_Report.txt')
+        file_path = Path(r'C:\project_group\summary_report.txt')
         with file_path.open(mode='a', encoding='UTF-8') as file:
             file.write(f'\n[CASH DEFICIT] CASH ON EACH DAY IS LOWER THAN THE PREVIOUS')
             
@@ -73,7 +73,7 @@ def coh_function():
             #sort all the days with loss into a final dictionary 
             if diff_dict[day] < 0:
                 final_dict[dayNo1]=diff_dict[day]
-        file_path = Path(r'C:\project_group\summary_Report.txt')
+        file_path = Path(r'C:\project_group\summary_report.txt')
         with file_path.open(mode='a', encoding='UTF-8') as file:
         # this loops through the dictionary and writes a statement for every day with a cash deficit
         # negative sign before the deficit amount gives its absolute value for formatting purposes

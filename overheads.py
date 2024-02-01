@@ -27,7 +27,7 @@ def overhead_function():
     #split the dictionary into two lists so that they can easily be referred to
     key_list=list(sorted_dict.keys())
     value_list=list(sorted_dict.values())
-    file_path = Path(r'C:\project_group\summary_Report.txt')
+    file_path = Path(r'C:\project_group\summary_report.txt')
     with file_path.open(mode='a', encoding='UTF-8') as file:
         file.write(f'[HIGHEST OVERHEAD]: {key_list[-1]}: {value_list[-1]}% ')
 
