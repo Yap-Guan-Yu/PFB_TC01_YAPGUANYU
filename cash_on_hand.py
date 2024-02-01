@@ -18,20 +18,24 @@ def coh_function():
             CoH.append([row[0],row[1]])   
 
     diff_dict={}
-    final_dict={}
     previous = 0  
     for day in CoH:
+        """
+        finds the difference in cash on hand per day
+        """
         # convert cash on hand to variable cash
         Cash = int(day[1])
         # find the difference between the day and the day before
         Difference = Cash - previous
         # set previous value for the next day
         previous = Cash
+        #add the difference to the dictionary with the key as the day
         dayNo=str(day[0])
         diff_dict[dayNo] = Difference
 
     #now, find out whether the data in diff_dict is always increasing, decreasing, or fluctuating
     Differences = diff_dict.values()
+    final_dict={}
     # always increasing
     if all(diff > 0 for diff in Differences):
         file_path = Path(r'C:\project_group\summary_Report.txt')
@@ -40,6 +44,7 @@ def coh_function():
             
             #sort the dictionary in ascending order so that the biggest gain is last
             sorted_dict = dict(sorted(final_dict.items(), key=lambda item: item[1]))
+            #split the dictionary into two lists so that they can easily be referred to
             key_list=list(sorted_dict.keys())
             value_list=list(sorted_dict.values())
             # -1 index is used to take the last value in the list
@@ -54,6 +59,7 @@ def coh_function():
             
             #sort the dictionary in ascending order so that the biggest loss is first
             sorted_dict = dict(sorted(final_dict.items(), key=lambda item: item[1]))
+            #split the dictionary into two lists so that they can easily be referred to
             key_list=list(sorted_dict.keys())
             value_list=list(sorted_dict.values())
             # 0 index is used to take the first value in the list
@@ -76,6 +82,7 @@ def coh_function():
             
             #sort the dictionary in ascending order so that the biggest loss is first
             sorted_dict = dict(sorted(final_dict.items(), key=lambda item: item[1]))
+            #split the dictionary into two lists so that they can easily be referred to
             key_list=list(sorted_dict.keys())
             value_list=list(sorted_dict.values())
             # writes the top 3 highest deficits, if there are less than 3 days with deficit, only write out those days in order

@@ -22,6 +22,9 @@ def profitloss_function():
     final_dict={}
     previous = 0
     for day in PaL:
+        """
+        finds the difference in cash on hand per day
+        """
         # convert profit to variable
         profit = int(day[2])
         # find the difference between the day and the day before
@@ -41,6 +44,7 @@ def profitloss_function():
             
             #sort the dictionary in ascending order so that the biggest gain is last
             sorted_dict = dict(sorted(final_dict.items(), key=lambda item: item[1]))
+            #split the dictionary into two lists so that they can easily be referred to
             key_list=list(sorted_dict.keys())
             value_list=list(sorted_dict.values())
             # -1 index is used to take the last value in the list
@@ -55,6 +59,7 @@ def profitloss_function():
             
             #sort the dictionary in ascending order so that the biggest loss is first
             sorted_dict = dict(sorted(final_dict.items(), key=lambda item: item[1]))
+            #split the dictionary into two lists so that they can easily be referred to
             key_list=list(sorted_dict.keys())
             value_list=list(sorted_dict.values())
             # 0 index is used to take the first value in the list
@@ -77,6 +82,7 @@ def profitloss_function():
             
             #sort the dictionary in ascending order so that the biggest loss is first
             sorted_dict = dict(sorted(final_dict.items(), key=lambda item: item[1]))
+            #split the dictionary into two lists so that they can easily be referred to
             key_list=list(sorted_dict.keys())
             value_list=list(sorted_dict.values())
             

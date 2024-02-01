@@ -24,6 +24,7 @@ def overhead_function():
 
     #sort it in ascending order so the highest overhead is last in the dictionary
     sorted_dict = dict(sorted(OH.items(), key=lambda item: item[1]))
+    #split the dictionary into two lists so that they can easily be referred to
     key_list=list(sorted_dict.keys())
     value_list=list(sorted_dict.values())
     file_path = Path(r'C:\project_group\summary_Report.txt')
