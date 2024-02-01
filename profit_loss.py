@@ -23,7 +23,7 @@ def profitloss_function():
     previous = 0
     for day in PaL:
         """
-        finds the difference in cash on hand per day
+        finds the profit/loss per day
         """
         # convert profit to variable
         profit = int(day[2])
