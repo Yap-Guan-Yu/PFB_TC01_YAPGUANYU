@@ -19,14 +19,13 @@ def profitloss_function():
             #and append to the Pal list
             PaL.append([row[0],row[1],row[2],row[3],row[4]])
     diff_dict={}
-    final_dict={}
     previous = 0
     for day in PaL:
         """
         finds the profit/loss per day
         """
         # convert profit to variable
-        profit = int(day[2])
+        profit = int(day[4])
         # find the difference between the day and the day before
         Difference = profit - previous
         # set previous value for the next day
@@ -36,6 +35,7 @@ def profitloss_function():
 
     #now, find out whether the data in diff_dict is always increasing, decreasing, or fluctuating
     Differences = diff_dict.values()
+    final_dict={}
     # always increasing
     if all(diff > 0 for diff in Differences):
         file_path = Path(r'C:\project_group\summary_Report.txt')
@@ -94,4 +94,4 @@ def profitloss_function():
                     file.write(f'\n[2nd HIGHEST NET PROFIT DEFICIT] DAY:{key_list[value]} AMOUNT: SGD{-value_list[value]}')
                 if value == 2:
                     file.write(f'\n[3rd HIGHEST NET PROFIT DEFICIT] DAY:{key_list[value]} AMOUNT: SGD{-value_list[value]}')
-                    break
+                    break 
